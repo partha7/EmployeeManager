@@ -1,6 +1,6 @@
-package com.demo.employeemanager.entities;
+package com.demo.employeemanager.models.entities;
 
-import com.demo.employeemanager.enums.Department;
+import com.demo.employeemanager.models.enums.Department;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -39,6 +39,7 @@ public class EmployeeEntity {
 
     private Double salary;
 
+    @Column(name = "date_of_joining", nullable = false)
     private LocalDateTime dateOfJoining;
 
     @Enumerated(EnumType.STRING)

@@ -1,4 +1,4 @@
-package com.demo.employeemanager.enums;
+package com.demo.employeemanager.models.enums;
 
 public enum Department {
     TECH,
