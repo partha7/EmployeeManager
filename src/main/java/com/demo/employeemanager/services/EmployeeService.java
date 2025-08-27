@@ -72,7 +72,7 @@ public class EmployeeService {
     public Page<EmployeeDTO> getEmployeesByFilter(Integer minAge, Integer maxAge, Department department, Double minSalary, String sortBy, String sortOrder, Integer page, Integer size) {
         Sort sort = sortOrder.equalsIgnoreCase(SortOrder.DESC.getValue())? Sort.by(Sort.Order.desc(sortBy)): Sort.by(Sort.Order.asc(sortBy));
         Pageable pageable = PageRequest.of(page, size, sort);
-        Page<EmployeeEntity> entities = employeeRepository.getEmployeesByFilter(minAge, maxAge, department, minSalary, pageable);
+        Page<EmployeeEntity> entities = employeeRepository. getEmployeesByFilter(minAge, maxAge, department, minSalary, pageable);
         return entities.map(employeeEntity -> modelMapper.map(employeeEntity, EmployeeDTO.class));
     }
 }

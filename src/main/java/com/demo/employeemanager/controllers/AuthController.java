@@ -1,8 +1,6 @@
 package com.demo.employeemanager.controllers;
 
-import com.demo.employeemanager.models.dtos.LoginDto;
-import com.demo.employeemanager.models.dtos.SignUpDto;
-import com.demo.employeemanager.models.dtos.UserDto;
+import com.demo.employeemanager.models.dtos.*;
 import com.demo.employeemanager.services.AuthService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -24,8 +22,12 @@ public class AuthController {
     }
 
     @PostMapping("/login")
-    public ResponseEntity<String> login(@RequestBody LoginDto loginDto) {
-        String token = authService.login(loginDto);
-        return ResponseEntity.ok(token);
+    public ResponseEntity<LoginResponseDto> login(@RequestBody LoginRequestDto loginRequestDto) {
+        return ResponseEntity.ok(authService.login(loginRequestDto));
+    }
+
+    @PostMapping("/refresh")
+    public ResponseEntity<LoginResponseDto> login(@RequestBody RefreshRequestDto refreshRequestDto) {
+        return ResponseEntity.ok(authService.refresh(refreshRequestDto));
     }
 }

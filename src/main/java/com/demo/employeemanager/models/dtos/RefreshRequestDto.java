@@ -9,7 +9,6 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class LoginDto {
-    private String password;
-    private String email;
+public class RefreshRequestDto {
+    private String refreshToken;
 }
